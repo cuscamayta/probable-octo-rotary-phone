@@ -1,0 +1,38 @@
+<ion-view title="Timesheet Detail">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="worklog in worksLogs" type="item-text-wrap"
+            ng-click="openModal(worklog)">
+                <img ng-src="{{worklog.userAvatar}}">
+                <h2>Day : {{worklog.dayNumber}} - {{worklog.dayName}}</h2>
+                <p>{{worklog.date}}</p>
+                <span class="badge badge-assertive badge-logwork" ng-class="{true:'badge-assertive', false:'badge-balanced'}[worklog.timeSpentSeconds < 21600]">{{worklog.totaTimeRegister}}</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <script id="templates/modalWorklogDetail.html" type="text/ng-template">
+        <ion-modal-view>
+            <ion-header-bar class="bar bar-header bar-positive">
+                <h1 class="title">Worlog Detail {{issueSelected.date}}</h1>
+            </ion-header-bar>
+            <ion-content>
+                <div class="list">
+                    <ion-item ng-repeat="item in issueSelected.worklogs">
+                        <img ng-src="{{item.issueIcon}}">  <span class='text-icon-worklog'>Issue :   {{item.issue}}</span>
+                       <p> Time Logged : {{item.totalTimeLoggedString}}</p>
+                    </ion-item>
+                </div>
+            </ion-content>
+            <ion-footer-bar class="bar-light">
+
+
+                <button type="button" class="button button-light" ng-click="closeModal()">Close</button>
+
+            </ion-footer-bar>
+        </ion-modal-view>
+    </script>
+</ion-view>

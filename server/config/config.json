@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "P@ssw0rd",
+    "database": "database_productionmb",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone" : "+08:00"
+  },
+  "test": {
+    "username": "root",
+    "password": "P@ssw0rd",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "P@ssw0rd",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone" : "-04:00"
+  }
+}
